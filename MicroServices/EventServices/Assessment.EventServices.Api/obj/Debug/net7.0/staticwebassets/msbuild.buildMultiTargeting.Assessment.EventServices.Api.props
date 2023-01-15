@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Assessment.EventServices.Api.props" />
+</Project>

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "bcNgJfBwgwK1STLNWlxmFurWgRrN78zYwKx3bTXNMPk=",
+  "Source": "Assessment.EventServices.Api",
+  "BasePath": "_content/Assessment.EventServices.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

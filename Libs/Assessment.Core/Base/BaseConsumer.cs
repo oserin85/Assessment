@@ -3,7 +3,7 @@ using Confluent.Kafka;
 using Confluent.Kafka.SyncOverAsync;
 using Confluent.SchemaRegistry;
 using Confluent.SchemaRegistry.Serdes;
-using Serilog;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +26,7 @@ namespace Assessment.Core.Base
         }
         public void Start()
         {
-            _logger.Information("Consumer Starting..");
+            _logger.LogInformation("Consumer Starting..");
             _cancellationToken = new CancellationTokenSource();
             _runner = new Thread(startInternal);
             _runner.Start();
@@ -35,11 +35,11 @@ namespace Assessment.Core.Base
         {
             using var consumer = new ConsumerBuilder<Ignore, TRequest>(_settings.ConsumerConfiguration)
                 .SetValueDeserializer(new JsonDeserializer<TRequest>().AsSyncOverAsync())
-                         .SetErrorHandler((_, e) => Console.WriteLine($"Error: {e.Reason}"))
+                         .SetErrorHandler((_, e) => _logger.LogError($"Error: {e.Reason}"))
                 .Build();
 
             consumer.Subscribe(_settings.Topic);
-            Console.WriteLine($"Subscribed to {_settings.Topic}");
+            _logger.LogInformation($"Subscribed to {_settings.Topic}");
             while (_cancellationToken.IsCancellationRequested)
             {
                 var consumeResult = consumer.Consume(_cancellationToken.Token);
@@ -56,7 +56,7 @@ namespace Assessment.Core.Base
         protected abstract void Consume(TRequest request, CancellationToken cancellationToken);
         public void Stop()
         {
-            _logger.Information("Consumer Stopping..");
+            _logger.LogInformation("Consumer Stopping..");
             _cancellationToken.Cancel();
         }
     }

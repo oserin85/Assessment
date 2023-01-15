@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Confluent.Kafka;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Serilog;
 
 namespace Assessment.Core.Base
 {
@@ -33,12 +33,12 @@ namespace Assessment.Core.Base
                 {
                     Value = messageString
                 });
-                _logger.Information($"Delivery Timestamp:{result.Timestamp.UtcDateTime}");
+                _logger.LogInformation($"Delivery Timestamp:{result.Timestamp.UtcDateTime}");
                 return await Task.FromResult(true);
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, $"Error occured: {ex.Message}");
+                _logger.LogError(ex, $"Error occured: {ex.Message}");
             }
 
             return false;
