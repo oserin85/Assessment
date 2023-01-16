@@ -2,22 +2,6 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs
-/Libs/Assessment.Models/obj
-/Libs/Assessment.Core/obj
-/Consumers/Assessment.EventsConsumer/bin
-/Consumers/Assessment.EventsConsumer/obj
-/MicroServices/EventServices/Assessment.EventServices.Elastic.Api/bin
-/MicroServices/EventServices/Assessment.EventServices.Elastic.Api/obj
-/MicroServices/EventServices/Assessment.EventServices.Postgres.Api/bin
-/MicroServices/EventServices/Assessment.EventServices.Postgres.Api/obj
-/MicroServices/EventServices/Assessment.EventServices.Api/bin
-/MicroServices/EventServices/Assessment.EventServices.Api/obj
-/Libs/Assessment.Core/bin
-/Libs/Assessment.Models/bin
-/bin
-/obj
-
 # User-specific files
 *.rsuser
 *.suo
