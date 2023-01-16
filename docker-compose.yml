@@ -37,10 +37,16 @@ services:
             /etc/confluent/docker/run "
     healthcheck:
      test: nc -z localhost 9092 || exit -1
-     start_period: 30s
-     interval: 5s
-     timeout: 30s
+     start_period: 20s
+     interval: 20s
+     timeout: 10s
      retries: 3
+    links: 
+     - zookeeper
+    depends_on:
+     zookeeper:
+      condition:
+       service_healthy
 
   assessment.eventservices.api:
     image: ${DOCKER_REGISTRY-}assessmenteventservicesapi
