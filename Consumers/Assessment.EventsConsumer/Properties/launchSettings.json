@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Assessment.EventsConsumer": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

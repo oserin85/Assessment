@@ -20,7 +20,8 @@ namespace Assessment.Core.Base
         protected BaseProducer(ProducerConfig config, ILogger logger)
         {
             _config = config;
-            _producer = new ProducerBuilder<Null, string>(_config).Build();
+            _producer = new ProducerBuilder<Null, string>(_config)
+                .Build();
             _logger = logger;
         }
 

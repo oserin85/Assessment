@@ -6,12 +6,12 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["MicroServices/Event/Assessment.EventServices.Api/Assessment.EventServices.Api.csproj", "MicroServices/Event/Assessment.EventServices.Api/"]
+COPY ["MicroServices/EventServices/Assessment.EventServices.Api/Assessment.EventServices.Api.csproj", "MicroServices/EventServices/Assessment.EventServices.Api/"]
 COPY ["Libs/Assessment.Core/Assessment.Core.csproj", "Libs/Assessment.Core/"]
 COPY ["Libs/Assessment.Models/Assessment.Models.csproj", "Libs/Assessment.Models/"]
-RUN dotnet restore "MicroServices/Event/Assessment.EventServices.Api/Assessment.EventServices.Api.csproj"
+RUN dotnet restore "MicroServices/EventServices/Assessment.EventServices.Api/Assessment.EventServices.Api.csproj"
 COPY . .
-WORKDIR "/src/MicroServices/Event/Assessment.EventServices.Api"
+WORKDIR "/src/MicroServices/EventServices/Assessment.EventServices.Api"
 RUN dotnet build "Assessment.EventServices.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
