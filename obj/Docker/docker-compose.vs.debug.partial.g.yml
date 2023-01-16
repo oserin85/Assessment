@@ -9,18 +9,17 @@ services:
       labels:
         com.microsoft.created-by: "visual-studio"
         com.microsoft.visual-studio.project-name: "Assessment.EventsConsumer"
-    environment:
-      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+    #environment:
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_assessment.eventsconsumer$
     volumes:
       - C:\Users\oguz_\source\repos\Assessment_Project\Consumers\Assessment.EventsConsumer:/app
       - C:\Users\oguz_\source\repos\Assessment_Project:/src
       - C:\Users\oguz_\vsdbg\vs2017u5:/remote_debugger:rw
-      - C:\Users\oguz_\.nuget\packages\:/root/.nuget/packages:ro
-      - C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages:/root/.nuget/fallbackpackages:ro
+#$nuget_volume_mapping_assessment.eventsconsumer$
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/net7.0/Assessment.EventsConsumer.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_assessment.eventsconsumer$ \"/app/bin/Debug/net7.0/Assessment.EventsConsumer.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
@@ -32,18 +31,17 @@ services:
       labels:
         com.microsoft.created-by: "visual-studio"
         com.microsoft.visual-studio.project-name: "Assessment.EventsConsumer"
-    environment:
-      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+    #environment:
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_assessment.eventsconsumer.postgres$
     volumes:
       - C:\Users\oguz_\source\repos\Assessment_Project\Consumers\Assessment.EventsConsumer:/app
       - C:\Users\oguz_\source\repos\Assessment_Project:/src
       - C:\Users\oguz_\vsdbg\vs2017u5:/remote_debugger:rw
-      - C:\Users\oguz_\.nuget\packages\:/root/.nuget/packages:ro
-      - C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages:/root/.nuget/fallbackpackages:ro
+#$nuget_volume_mapping_assessment.eventsconsumer.postgres$
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/net7.0/Assessment.EventsConsumer.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_assessment.eventsconsumer.postgres$ \"/app/bin/Debug/net7.0/Assessment.EventsConsumer.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
@@ -59,20 +57,19 @@ services:
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
-      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_assessment.eventservices.api$
     volumes:
       - C:\Users\oguz_\source\repos\Assessment_Project\MicroServices\EventServices\Assessment.EventServices.Api:/app
       - C:\Users\oguz_\source\repos\Assessment_Project:/src
       - C:\Users\oguz_\vsdbg\vs2017u5:/remote_debugger:rw
-      - C:\Users\oguz_\.nuget\packages\:/root/.nuget/packages:ro
-      - C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages:/root/.nuget/fallbackpackages:ro
+#$nuget_volume_mapping_assessment.eventservices.api$
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
 
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/net7.0/Assessment.EventServices.Api.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_assessment.eventservices.api$ \"\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
@@ -88,20 +85,19 @@ services:
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
-      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_assessment.eventservices.elastic.api$
     volumes:
       - C:\Users\oguz_\source\repos\Assessment_Project\MicroServices\EventServices\Assessment.EventServices.Elastic.Api:/app
       - C:\Users\oguz_\source\repos\Assessment_Project:/src
       - C:\Users\oguz_\vsdbg\vs2017u5:/remote_debugger:rw
-      - C:\Users\oguz_\.nuget\packages\:/root/.nuget/packages:ro
-      - C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages:/root/.nuget/fallbackpackages:ro
+#$nuget_volume_mapping_assessment.eventservices.elastic.api$
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
 
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/net7.0/Assessment.EventServices.Elastic.Api.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_assessment.eventservices.elastic.api$ \"/app/bin/Debug/net7.0/Assessment.EventServices.Elastic.Api.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
@@ -117,20 +113,19 @@ services:
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
-      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_assessment.eventservices.postgres.api$
     volumes:
       - C:\Users\oguz_\source\repos\Assessment_Project\MicroServices\EventServices\Assessment.EventServices.Postgres.Api:/app
       - C:\Users\oguz_\source\repos\Assessment_Project:/src
       - C:\Users\oguz_\vsdbg\vs2017u5:/remote_debugger:rw
-      - C:\Users\oguz_\.nuget\packages\:/root/.nuget/packages:ro
-      - C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages:/root/.nuget/fallbackpackages:ro
+#$nuget_volume_mapping_assessment.eventservices.postgres.api$
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
 
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/net7.0/Assessment.EventServices.Postgres.Api.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_assessment.eventservices.postgres.api$ \"/app/bin/Debug/net7.0/Assessment.EventServices.Postgres.Api.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
