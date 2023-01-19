@@ -1,0 +1,46 @@
+version: '3.4'
+
+services:
+  assessment.eventservices.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80:80"
+    links: 
+     - kafka
+    depends_on:
+     kafka:
+      condition:
+       service_healthy
+
+  assessment.eventservices.elastic.api:
+    hostname: assessment.eventservices.elastic.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+    ports:
+      - "8080:8080"
+
+  assessment.eventservices.postgres.api:
+    hostname: assessment.eventservices.postgres.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8081
+    ports:
+      - "8081:8081"
+
+  assessment.eventsconsumer:
+   links: 
+    - kafka
+   depends_on:
+    kafka:
+     condition:
+      service_healthy
+
+  assessment.eventsconsumer.postgres:
+   links: 
+    - kafka
+   depends_on:
+    kafka:
+     condition:
+      service_healthy
