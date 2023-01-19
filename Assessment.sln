@@ -23,13 +23,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assessment.EventServices.Ap
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventServices", "EventServices", "{4D92526E-40F2-4B4D-B346-5B2AC910DAEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assessment.EventServices.Elastic.Api", "MicroServices\EventServices\Assessment.EventServices.Elastic.Api\Assessment.EventServices.Elastic.Api.csproj", "{C6CFB35F-9F2F-4BED-BDFF-B2431A7B3503}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assessment.EventServices.Elastic.Api", "MicroServices\EventServices\Assessment.EventServices.Elastic.Api\Assessment.EventServices.Elastic.Api.csproj", "{C6CFB35F-9F2F-4BED-BDFF-B2431A7B3503}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assessment.EventServices.Postgres.Api", "MicroServices\EventServices\Assessment.EventServices.Postgres.Api\Assessment.EventServices.Postgres.Api.csproj", "{640516F1-2FC1-48B7-AE95-0CC5813A9C86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assessment.EventServices.Postgres.Api", "MicroServices\EventServices\Assessment.EventServices.Postgres.Api\Assessment.EventServices.Postgres.Api.csproj", "{640516F1-2FC1-48B7-AE95-0CC5813A9C86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assessment.EventsConsumer", "Consumers\Assessment.EventsConsumer\Assessment.EventsConsumer.csproj", "{CF37913B-63F4-47BD-A418-70FBBFA81436}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assessment.EventsConsumer", "Consumers\Assessment.EventsConsumer\Assessment.EventsConsumer.csproj", "{CF37913B-63F4-47BD-A418-70FBBFA81436}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D3878555-AAC4-444C-BC09-532657989A0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssessmentTest", "AssessmentTest\AssessmentTest.csproj", "{6AC93352-72A9-44A7-9605-33100BC3077E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{D3878555-AAC4-444C-BC09-532657989A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3878555-AAC4-444C-BC09-532657989A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3878555-AAC4-444C-BC09-532657989A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AC93352-72A9-44A7-9605-33100BC3077E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AC93352-72A9-44A7-9605-33100BC3077E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AC93352-72A9-44A7-9605-33100BC3077E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AC93352-72A9-44A7-9605-33100BC3077E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

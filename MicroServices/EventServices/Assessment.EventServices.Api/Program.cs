@@ -1,4 +1,6 @@
+using Assessment.Core.Helpers;
 using Assessment.Core.Interfaces;
+using Assessment.Core.Settings;
 using Confluent.Kafka;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net;
@@ -14,8 +16,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(p =>
     p.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
 });
 
-var producerConfiguration = new ProducerConfig();
-builder.Configuration.Bind("ProducerConfiguration", producerConfiguration);
+var producerConfiguration = builder.Configuration.GetConfiguration<ProducerConfig>("ProducerConfiguration");
 producerConfiguration.ClientId = Dns.GetHostName();
 builder.Services.AddSingleton(producerConfiguration);
 builder.Services.AddLogging();
